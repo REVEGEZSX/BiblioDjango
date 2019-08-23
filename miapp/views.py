@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.detail import DetailView
 
 from django.urls import reverse_lazy
 
@@ -29,5 +30,9 @@ class LibroUpdate(UpdateView):
 
 class LibroDelete(DeleteView):
     model = Libro
-    template_name = 'miapp/actualizar_libro.html'
+    template_name = 'miapp/eliminar_libro.html'
     success_url = reverse_lazy('listar_libros')
+
+class LibroDetalle(DetailView):
+    model = Libro
+    template_name = 'miapp/detalle_libro.html'

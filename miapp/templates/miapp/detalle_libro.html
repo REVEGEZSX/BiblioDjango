@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block principal %}
+
+    <h1>detalle de libro: </h1>
+    <p>Libro: {{ object.nombre }}</p>
+    <p>Descripcion: {{ object.descripcion }}</p>
+    <p>ISBN: {{ object.isbn }}</p>
+    <p>Copias: {{ object.copia }}</p>
+
+{% endblock %}

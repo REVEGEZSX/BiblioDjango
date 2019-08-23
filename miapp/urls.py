@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import cargar_inicio, LibroList, LibroCreate, LibroUpdate, LibroDelete
+from .views import cargar_inicio, LibroList, LibroCreate, LibroUpdate, LibroDelete, LibroDetalle
 
 urlpatterns = [
     path('', cargar_inicio, name = 'inicio'),
@@ -7,4 +7,5 @@ urlpatterns = [
     path('libros/nuevo/', LibroCreate.as_view(), name = 'nuevo_libro'),
     path('libros/editar/<int:pk>', LibroUpdate.as_view(), name = 'actualizar_libro'),
     path('libros/eliminar/<int:pk>', LibroDelete.as_view(), name = 'eliminar_libro'),
+    path('libros/detalle/<int:pk>', LibroDetalle.as_view(), name = 'detalle_libro'),
 ]

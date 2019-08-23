@@ -3,29 +3,29 @@
 {% block principal %}
     <h2>Listado de libros</h2>
 
-    <table>
+    <table class="table">
         <tr>
-            <th>Nombre</th>
-            <th>Descripción</th>
-            <th>ISBN</th>
-            <th>Copias</th>
-            <th>Editar</th>
-            <th>Borrar</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">ISBN</th>
+            <th scope="col">Copias</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Borrar</th>
         </tr>
         {% for libro in object_list  %}
             <tr>
-                <td>{{ libro.nombre }}</td>
+                <td><a href=" {% url 'detalle_libro' libro.id %}">{{ libro.nombre }}</a></td>
                 <td>{{ libro.descripcion }}</td>
                 <td>{{ libro.isbn }}</td>
                 <td>{{ libro.copias }}</td>
-                <td><a href=" {% url 'actualizar_libro' libro.id %}">Editar</a></td>
-                <td><a href=" {% url 'eliminar_libro' libro.id %}">Borrar</a></td>
+                <td><a href=" {% url 'actualizar_libro' libro.id %}"><button type="button" class="btn btn-danger" style="height: 25px; width: 50px"></button></a></td>
+                <td><a href=" {% url 'eliminar_libro' libro.id %}"><button type="button" class="btn btn-success" style="height: 25px; width: 50px"></button></a></td>
             </tr>
         {% endfor %}
 
     </table>
    
 
-    <a href="{% url 'nuevo_libro' %}">Nuevo Libro</a>
+    <a href="{% url 'nuevo_libro' %}"><button type="button" class="btn btn-warning">NUEVO LIBRO</button></a>
 {% endblock %}
 
