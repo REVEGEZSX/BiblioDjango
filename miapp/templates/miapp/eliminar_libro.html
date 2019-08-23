@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block principal %}
+<p>Esta seguro de realizar esta accion CON EL libro {{ object.nombre }}</p>
+<form action="sumbit">ELIMINAR
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">ELIMINAR</button>
+</form>
+<a href="{% url 'lista_libros' %}"></a>
+{% endblock %}

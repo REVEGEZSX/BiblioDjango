@@ -18,8 +18,8 @@
                 <td>{{ libro.descripcion }}</td>
                 <td>{{ libro.isbn }}</td>
                 <td>{{ libro.copias }}</td>
-                <td><a href="#">Editar</a></td>
-                <td><a href="#">Borrar</a></td>
+                <td><a href=" {% url 'actualizar_libro' libro.id %}">Editar</a></td>
+                <td><a href=" {% url 'eliminar_libro' libro.id %}">Borrar</a></td>
             </tr>
         {% endfor %}
 

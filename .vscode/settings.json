@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "C:\\Users\\CBN\\.virtualenvs\\miprimerproyectodjango-wJLDR2My\\Scripts\\python.exe"
+    "python.pythonPath": "C:\\Users\\CBN\\.virtualenvs\\miprimerproyectodjango-wJLDR2My\\Scripts\\python.exe",
+    "python.formatting.provider": "black"
 }

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from django.urls import reverse_lazy
 
@@ -21,3 +21,13 @@ class LibroCreate(CreateView):
     success_url = reverse_lazy('listar_libros')
 
 
+class LibroUpdate(UpdateView):
+    model = Libro
+    fields = ['nombre','descripcion','isbn','copias']
+    template_name = 'miapp/actualizar_libro.html'
+    success_url = reverse_lazy('listar_libros')
+
+class LibroDelete(DeleteView):
+    model = Libro
+    template_name = 'miapp/actualizar_libro.html'
+    success_url = reverse_lazy('listar_libros')
