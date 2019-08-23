@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block principal %}
+    <h2>Listado de libros</h2>
+
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>ISBN</th>
+            <th>Copias</th>
+            <th>Editar</th>
+            <th>Borrar</th>
+        </tr>
+        {% for libro in object_list  %}
+            <tr>
+                <td>{{ libro.nombre }}</td>
+                <td>{{ libro.descripcion }}</td>
+                <td>{{ libro.isbn }}</td>
+                <td>{{ libro.copias }}</td>
+                <td><a href="#">Editar</a></td>
+                <td><a href="#">Borrar</a></td>
+            </tr>
+        {% endfor %}
+
+    </table>
+   
+
+    <a href="{% url 'nuevo_libro' %}">Nuevo Libro</a>
+{% endblock %}
+
