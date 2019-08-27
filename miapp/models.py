@@ -19,12 +19,11 @@ class Prestamo(models.Model):
         return "{0}-{1}".format(self.fechaprestamo, self.nombre_cliente)
 
 class Ejemplar(models.Model):
-    numeroejemplar = models.CharField(max_length=40)
-    fechadecompra = models.DateField("Fecha de compra")
-    libro = models.ForeignKey('Libro', on_delete=models.CASCADE)
-
+    numeroejemplar = models.CharField(max_length=45)
+    fechadecompra = models.DateField(null=False)
+    Libro = models.ForeignKey('Libro',on_delete=models.CASCADE) 
     def __str__(self):
-        return self.numeroejemplar
+        return self.numeroejemplar +"-> " +str(self.Libro)
 
 class DetallePrestamo(models.Model):
     prestamo = models.ForeignKey('Prestamo', on_delete=models.CASCADE)

@@ -6,7 +6,7 @@ from django.views.generic.detail import DetailView
 
 from django.urls import reverse_lazy
 
-from .models import Libro
+from .models import *
 
 def cargar_inicio(request):
     return render(request, "miapp/index.html")
@@ -36,3 +36,11 @@ class LibroDelete(DeleteView):
 class LibroDetalle(DetailView):
     model = Libro
     template_name = 'miapp/detalle_libro.html'
+
+class LibroEjemplares(ListView):
+    model = Ejemplar
+    template_name = 'miapp/Ejemplares.html'
+
+class DetalleEjemplar(DetailView):
+    model = Ejemplar
+    template_name = 'miapp/detalle_ejemplar.html'
