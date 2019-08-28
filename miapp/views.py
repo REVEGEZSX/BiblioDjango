@@ -43,4 +43,4 @@ class LibroEjemplares(ListView):
 
 class DetalleEjemplar(DetailView):
     model = Ejemplar
-    template_name = 'miapp/detalle_ejemplar.html'
+    template_name = 'miapp/detalleEjemplar.html'
