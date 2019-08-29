@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Libro, Prestamo, DetallePrestamo, Ejemplar
+from .models import *
 
 
 admin.site.register(Libro)

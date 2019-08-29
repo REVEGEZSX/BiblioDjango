@@ -1,11 +1,18 @@
 {% extends 'base.html' %}
-
 {% block principal %}
-<p>Esta seguro de realizar esta accion CON EL libro {{ object.nombre }}</p>
+
+
+<p>¿Esta seguro eliminar {{ object.nombre }}</p>
+
 <form action="#" method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">ELIMINAR</button>
+    
+    
+    <button type="submit" class="btn-danger">Eliminar</button>
+   
 </form>
-<a href="{% url 'listar_libros' %}"></a>
+    
+   <a href="{% url 'Listar_libros' %}"><button class="btn-warning">No Eliminar</button></a>
+
+
 {% endblock %}

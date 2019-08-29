@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
-
 {% block principal %}
 
-<form action="#" method="post">
+
+<form action="#" method="POST">
     {% csrf_token %}
-
+    
     {{ form.as_p }}
+    
+    <button type="submit">Actualizar Datos</button>
+    
+    
+    </form>
 
-    <button type="submit">Actualizar</button>
 
-</form>
 
 {% endblock %}

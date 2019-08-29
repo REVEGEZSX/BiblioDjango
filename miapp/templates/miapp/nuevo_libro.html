@@ -1,14 +1,18 @@
 {% extends 'base.html' %}
-
 {% block principal %}
 
-    <form action="#" method="post">
-        {% csrf_token %}
+<form action="#" method="POST">
+{% csrf_token %}
 
-        {{ form.as_p }}
+{{ form.as_p }}
 
-        <button type="submit">Enviar </button>
+<button type="submit">Enviar</button>
 
-    </form>
+
+</form>
+
+
+
+
 
 {% endblock %}
