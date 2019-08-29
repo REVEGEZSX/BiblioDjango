@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block principal %}
+
+    <h2>Listado de libros</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="row">Ejemplar</th>
+                <th scope="row">Libro</th>
+                <th scope="row">Fecha de Ejemplar</th>
+                <th scope="row">Editar</th>
+                <th scope="row">Borrar</th>
+            </tr>
+        </thead>
+            <tbody>
+                {% for libro in object_list %}
+                <tr>
+                    <td><a href="{% url 'Detalle_Ejemplar' libro.pk %}">{{ libro.numeroejemplar }}</a></td>
+                    <td>{{ libro.Libro}}</td>
+                    <td>{{ libro.fechadecompra}}</td>
+                    <td><a href="{% url 'Editar_Ejemplar' libro.id %}"><button class="btn-success" style="height: 25px; width: 25px;"></button></a></td>
+                    <td><a href="{% url 'Eliminar_Ejemplar' libro.id %}"><button class="btn-danger" style="height: 25px; width: 25px;"></button></a></td>
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+    <p><a href="{% url 'Nuevo_Ejemplar' %}">Crear nuevo ejemplar</a></p>
+    </div>  
+    {% endblock %}

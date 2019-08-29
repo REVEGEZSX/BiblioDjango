@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block principal %}
+
+
+<p>¿Esta seguro eliminar {{ object.numeroejemplar }}</p>
+
+<form action="#" method="POST">
+    {% csrf_token %}
+    
+    
+    <button type="submit">Eliminar</button>
+   
+</form>
+    
+   <a href="{% url 'Ejemplar' %}">No Eliminar</a>
+
+
+{% endblock %}
