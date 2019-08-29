@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block principal %}
+
+
+<p>¿Esta seguro eliminar el prestamo de {{ prestamo.nombre_cliente }} ?</p>
+
+<form action="#" method="POST">
+    {% csrf_token %}
+    
+    
+    <button type="submit" class="btn-danger">Eliminar</button>
+   
+</form>
+    
+   <a href="{% url 'prestamo' %}"><button class="btn-success">No Eliminar</button></a>
+
+
+{% endblock %}

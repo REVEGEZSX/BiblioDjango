@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block principal %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">fecha prestamo</th>
+                <th scope="col">nombre cliente</th>
+                <th scope="col">telefono cliente</th>
+                <th scope="col">estado</th>
+                <th scope="col">EDITAR</th>
+                <th scope="col">BORRAR</th>
+            </tr>
+        </thead>
+            {% for prestamo in object_list %}
+            <tbody>
+                <tr>
+                    <td>{{ prestamo.fechaprestamo }}</td>
+                    <td>{{ prestamo.nombre_cliente }}</td>
+                    <td>{{ prestamo.telefono }}</td>
+                    <td>{{ prestamo.estado }}</td>
+                    <td><a href="{% url 'editar_prestamo' prestamo.id%}"><button class="btn-success" style="height: 25px; width: 25px;"></button></a></td>
+                    <td><a href="{% url 'eliminar_prestamo' prestamo.id%}"><button class="btn-danger" style="height: 25px; width: 25px;"></button></a></td>
+                </tr>
+            </tbody>
+            {% endfor%}
+    </table>
+    <a href="{% url 'nuevo_prestamo' %}" ><button class="btn-warning"> Crear prestamo</button></a>
+
+{% endblock %}

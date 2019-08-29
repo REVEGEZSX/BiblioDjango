@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'biblioteca',
         'USER': 'root',
-        'PASSWORD': 'hakumen2000',
+        'PASSWORD': 'cbn2016',
         'HOST': 'localhost',
         
     }
@@ -129,3 +129,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+LOGIN_REDIRECT_URL = '/libro'
+LOGIN_URL = 'login'

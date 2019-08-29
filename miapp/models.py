@@ -15,13 +15,17 @@ class Ejemplar(models.Model):
         return self.numeroejemplar +"-> " +str(self.Libro) 
 
 class Prestamo(models.Model):
-    fechaprestamo = models.DateField(null=False)
-    nombrecliente = models.CharField(max_length=45)
-    telefonocliente = models.CharField(max_length=45)
-    estado = models.BooleanField(null=False)
+    fechaprestamo = models.DateField("Fecha de prestamo")
+    nombre_cliente = models.CharField(max_length=40)
+    telefono = models.CharField(max_length=45)
+    estado = models.BooleanField()
     def __str__(self):
-        return self.numeroejemplar
+        return "{0}-{1}".format(self.fechaprestamo, self.nombre_cliente)
 
 class DetallePrestamo(models.Model):
+    fechaDeDevolucion = models.DateField("fecha de devolucion", null=True)
     Prestamo = models.ForeignKey('Prestamo',on_delete=models.CASCADE)
     Ejemplar = models.ForeignKey('Ejemplar',on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return "{0}-{1}" .format(self.Prestamo, self.Ejemplar)

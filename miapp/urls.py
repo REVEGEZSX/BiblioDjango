@@ -8,9 +8,18 @@ urlpatterns = [
     path('libro/editar/<int:pk>',LibroUpdate.as_view(),name='Editar_Libro'),
     path('libro/eliminar/<int:pk>',LibroDelete.as_view(),name='Borrar_Libro'),
     path('libro/detalle/<int:pk>',LibroDetalle.as_view(),name='Detalle_Libro'),
+
     path('ejemplar/',EjemplarList.as_view(),name='Ejemplar'),
     path('detalle_ejemplar/<int:pk>',DetalleEjemplar.as_view(),name='Detalle_Ejemplar'),
     path('ejemplar/editar/<int:pk>',EjemplarUpdate.as_view(),name='Editar_Ejemplar'),
     path('ejemplar/eliminar/<int:pk>',EjemplarDelete.as_view(),name='Eliminar_Ejemplar'),
     path('ejemplar/nuevo/',EjemplarCreate.as_view(),name='Nuevo_Ejemplar'),
+
+    path('prestamo', PrestamoList.as_view(), name='prestamo'),
+    path('prestamo/nuevo', PrestamoCreate.as_view(), name='nuevo_prestamo'),
+    path('prestamo/editar/<int:pk>', PrestamoUpdate.as_view(), name='editar_prestamo'),
+    path('prestamo/eliminar/<int:pk>', PrestamoDelete.as_view(), name='eliminar_prestamo'),
+
+    path('login',LoginView.as_view(template_name='accounts/login.html'), name='login'),
+    path('logout',LogoutView.as_view(template_name='accounts/logout.html'), name='logout'),
 ]
