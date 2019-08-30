@@ -8,19 +8,25 @@
             <th scope="col">Nombre</th>
             <th scope="col">Descripcion</th>
             <th scope="col">ISBN</th>
-            <th scope="col">Editar</th>
-            <th scope="col">Borrar</th>
+            {% if user.is_authenticated %}
+                <th scope="col">Editar</th>
+                <th scope="col">Borrar</th>
+            {% endif %}
         </tr>
         {% for libro in object_list %}
         <tr>
             <td><a href="{% url 'Detalle_Libro' libro.pk %}">{{ libro.nombre }}</a></td>
             <td>{{ libro.descripcion }}</td>
             <td>{{ libro.isbn }}</td>
-            <td><a href="{% url 'Editar_Libro' libro.id %}"><button class="btn-success" style="height: 25px; width: 25px;"></button></a></td>
-            <td><a href="{% url 'Borrar_Libro' libro.id %}"><button class="btn-danger" style="height: 25px; width: 25px;"></button></a></td>
+            {% if user.is_authenticated %}
+                <td><a href="{% url 'Editar_Libro' libro.id %}"><button class="btn-success" style="height: 25px; width: 25px;"></button></a></td>
+                <td><a href="{% url 'Borrar_Libro' libro.id %}"><button class="btn-danger" style="height: 25px; width: 25px;"></button></a></td>
+            {% endif %}
         </tr>
         {% endfor%}
 
     </table>
+    {% if user.is_authenticated %}
     <p><a href="{% url 'Nuevo_libro' %}">Crear nuevo libro</a></p>
+    {% endif %}
     {% endblock %}

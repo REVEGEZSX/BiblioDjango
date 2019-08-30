@@ -9,8 +9,10 @@
                 <th scope="row">Ejemplar</th>
                 <th scope="row">Libro</th>
                 <th scope="row">Fecha de Ejemplar</th>
-                <th scope="row">Editar</th>
-                <th scope="row">Borrar</th>
+                {% if user.is_authenticated %}
+                    <th scope="row">Editar</th>
+                    <th scope="row">Borrar</th>
+                {% endif %}
             </tr>
         </thead>
             <tbody>
@@ -19,12 +21,17 @@
                     <td><a href="{% url 'Detalle_Ejemplar' libro.pk %}">{{ libro.numeroejemplar }}</a></td>
                     <td>{{ libro.Libro}}</td>
                     <td>{{ libro.fechadecompra}}</td>
-                    <td><a href="{% url 'Editar_Ejemplar' libro.id %}"><button class="btn-success" style="height: 25px; width: 25px;"></button></a></td>
-                    <td><a href="{% url 'Eliminar_Ejemplar' libro.id %}"><button class="btn-danger" style="height: 25px; width: 25px;"></button></a></td>
+                    {% if user.is_authenticated %}
+                        <td><a href="{% url 'Editar_Ejemplar' libro.id %}"><button class="btn-success" style="height: 25px; width: 25px;"></button></a></td>
+                        <td><a href="{% url 'Eliminar_Ejemplar' libro.id %}"><button class="btn-danger" style="height: 25px; width: 25px;"></button></a></td>
+                    {% endif %}
                 </tr>
                 {% endfor%}
             </tbody>
         </table>
+    {% if user.is_authenticated %}
     <p><a href="{% url 'Nuevo_Ejemplar' %}">Crear nuevo ejemplar</a></p>
+    {% endif %}
+
     </div>  
     {% endblock %}

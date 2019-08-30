@@ -14,11 +14,17 @@
 
     <nav>
         <ul>
+            
             <li><a href= "{% url 'Inicio' %}"> Inicio </a></li>
             <li><a href= "{% url 'Listar_libros' %}"> Libros </a></li>
             <li><a href= "{% url 'Ejemplar' %}"> Ejemplares </a></li>
+            {% if user.is_authenticated %}
             <li><a href= "{% url 'prestamo' %}"> Prestamos </a></li>
+            <li><a href="{% url 'logout' %}"> Logout</a></li>
+            {% else %}
             <li><a href= "{% url 'login' %}"> Iniciar sesión </a></li>
+            {% endif %}
+            <li>{{ user.username }}</li>
         </ul>
     </nav>
     <div class="container">
